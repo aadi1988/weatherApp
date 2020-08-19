@@ -56,6 +56,7 @@ var fiveDayForecast = function(data){
         var humidity = data.daily[i].humidity;
         var img_url = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
         var img = "<img src=" + img_url + " alt='weather condition'></img>"
+        //change the following to card layout instead
         var p_date = $("<p class='list-group-item list-group-item-action city-list five-fcast'>" + date + "</p>");
         var p_icon = $("<p class='list-group-item list-group-item-action city-list five-fcast'>" + img + "</p>");
         var p_temp = $("<p class='list-group-item list-group-item-action city-list five-fcast'>Temp:" + temp + "</p>");
@@ -99,15 +100,20 @@ var fetchdailyForecast = function(city){
                                      var img_url = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
                                      var img = "<img src=" + img_url + " alt='weather condition'></img>"
                                      var newImg = $(img);
+                                     //$(".city-info > h3").text(combo);
                                      $(".city-info > h3").text(combo).append(newImg);
                                      console.log(data.daily[0].temp.max);
                                      console.log(data.daily[0].weather[0].icon);
                                      console.log(data.daily[0].humidity);
                                      fiveDayForecast(data);
+                                     saveCity(city);
                                 })
                             }
                         })
                    })
+          }
+          else{
+              window.alert("Invalid city name, Enter a valid city");
           }
     })
 }
@@ -131,8 +137,22 @@ $(".container-fluid").click(function(event){
         var date = moment().format("(MM/DD/YYYY)");
         var city  = $("#search").val();
         var combo = city + " " + date
-        $(".city-info > h3").text(combo);
-        saveCity(city);
+        //$(".city-info > h3").text(combo);
+        
         fetchdailyForecast(city);
+        //saveCity(city);
     } 
 });
+
+var loadFromLocalStorage = function(){
+    console.log(JSON.parse(localStorage.getItem("city_dict")));
+    city_dict = JSON.parse(localStorage.getItem("city_dict"));
+    if (city_dict !== null){
+        for (var city in city_dict){
+            var cityEl = $("<a href='#' class='list-group-item list-group-item-action'>" + city + "</a>");
+            $("#save-search").append(cityEl);
+        }
+    }
+}
+
+loadFromLocalStorage();
