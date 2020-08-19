@@ -20,11 +20,24 @@ var saveCity = function(city){
      
 }
 
+var checkForecastChildren = function(){
+    if ( $('#current-forecast').children().length > 0 ) {
+        $('#current-forecast').empty();
+    }    
+}
+
+var checkFiveDayForecastChildren = function(){
+    if ($("#five-day-forecast").children().length > 0){
+        $("#five-day-forecast").empty();
+    }
+}
+
 var  displayCurrentForecast = function(data){
     console.log(data.current.temp);
     console.log(data.current.humidity);
     console.log(data.current.wind_speed);
     console.log(data.current.uvi);
+    checkForecastChildren();
     $("#current-forecast").append("<p class='list-group-item list-group-item-action city-list'>Temperature: " + data.current.temp  + "</p>");
     $("#current-forecast").append("<p class='list-group-item list-group-item-action city-list'>Humidity: " + data.current.humidity  + "</p>");
     $("#current-forecast").append("<p class='list-group-item list-group-item-action city-list'>Wind Speed: " + data.current.wind_speed  + "</p>");
@@ -32,7 +45,9 @@ var  displayCurrentForecast = function(data){
 }
 
 var fiveDayForecast = function(data){
+    checkFiveDayForecastChildren();
     for (var i = 0; i<5;i++){
+        
         var date = moment.unix(data.daily[i].dt).format("MM/DD/YYYY");
         //$("#five-day-forecast").append("<li class='list-group-item five-fcast'></li>");
         //$(".five-fcast").append("<h3>"+date+"</h3>");
@@ -50,10 +65,12 @@ var fiveDayForecast = function(data){
         console.log(divEl);
         //console.log($(p_date)[0]);
         divEl.classList = "col";
+        
         divEl.appendChild($(p_date)[0]);
         divEl.appendChild($(p_icon)[0]);
         divEl.appendChild($(p_temp)[0]);
         divEl.appendChild($(p_humidity)[0]);
+        
         $("#five-day-forecast").append($(divEl));
 
     }
