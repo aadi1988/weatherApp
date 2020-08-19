@@ -41,12 +41,18 @@ var  displayCurrentForecast = function(data){
     $("#current-forecast").append("<p class='list-group-item list-group-item-action city-list'>Temperature: " + data.current.temp  + "</p>");
     $("#current-forecast").append("<p class='list-group-item list-group-item-action city-list'>Humidity: " + data.current.humidity  + "</p>");
     $("#current-forecast").append("<p class='list-group-item list-group-item-action city-list'>Wind Speed: " + data.current.wind_speed  + "</p>");
-    $("#current-forecast").append("<p class='list-group-item list-group-item-action city-list'>UV Index: <span class='bg-danger'>" + data.current.uvi + "</span></p>");
+    if (data.current.uvi > 8){
+        $("#current-forecast").append("<p class='list-group-item list-group-item-action city-list'>UV Index: <span class='bg-danger'>" + data.current.uvi + "</span></p>");
+    }
+    else{
+        $("#current-forecast").append("<p class='list-group-item list-group-item-action city-list'>UV Index: " + data.current.uvi + "</p");
+    }
+    
 }
 
 var fiveDayForecast = function(data){
     checkFiveDayForecastChildren();
-    for (var i = 0; i<5;i++){
+    for (var i = 1; i<6;i++){
         
         var date = moment.unix(data.daily[i].dt).format("MM/DD/YYYY");
         //$("#five-day-forecast").append("<li class='list-group-item five-fcast'></li>");
@@ -126,6 +132,7 @@ $("#save-search").click(function(event){
         var date = moment().format("(MM/DD/YYYY)");
         var combo = city + " " + date
         $(".city-info > h3").text(combo);
+        $("#search").attr("placeholder",city);
         fetchdailyForecast(city);
     }
 })
