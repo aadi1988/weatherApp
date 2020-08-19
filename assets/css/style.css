@@ -1,0 +1,36 @@
+.header{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.col{
+    padding-left: 30px;
+}
+
+.city-info{
+    height: 400px;
+    padding-left: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding-top: 20px;
+    border-right: none;
+    border-top-right-radius: 0 ;
+    border-bottom-right-radius: 0;
+}
+
+.forecast-info{
+    height: 400px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+.city-list{
+    border:none;
+}
+
+.five-fcast{
+    background-color: blue;
+   
+    color: white;
+}
