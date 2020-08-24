@@ -19,18 +19,7 @@
     border-bottom-right-radius: 0;
 }
 
-.forecast-info{
-    height: 400px;
-    padding-left: 30px;
-    padding-top: 20px;
-}
 
 .city-list{
     border:none;
-}
-
-.five-fcast{
-    background-color: blue;
-   
-    color: white;
 }
