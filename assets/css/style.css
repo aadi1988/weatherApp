@@ -1,25 +1,29 @@
+/*header attribute*/
 .header{
     background-color: black;
     color: white;
     text-align: center;
 }
 
+
 .col{
     padding-left: 30px;
 }
 
+/*current info container attribute*/
 .city-info{
     height: 400px;
     padding-left: 20px;
     border: 1px solid gray;
     border-radius: 10px;
-    padding-top: 20px;
+    margin-top: 20px;
+    padding-top:10px;
     border-right: none;
     border-top-right-radius: 0 ;
     border-bottom-right-radius: 0;
 }
 
-
+/*remove list attribute(displaying weather conditions)*/
 .city-list{
     border:none;
 }
