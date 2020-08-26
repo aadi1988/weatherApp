@@ -67,7 +67,7 @@
                      
                    </div>
                    <!--display 5 day forecast-->
-                   <div>
+                   <div class="forecast-info">
                      
                           <h3>5 Day Forecast</h3>
                           <div class="card-deck">
@@ -78,6 +78,25 @@
              </div>
          </div>
     </div>
+    <!--Modal called when no city is given-->
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal body -->
+            <div class="modal-body">
+                 Please Enter a valid city
+            </div>
+          
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          
+          </div>
+       </div>
+      </div>
     <!--links to jquery,bootstrap, moment and own js file-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

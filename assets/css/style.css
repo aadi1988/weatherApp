@@ -23,6 +23,13 @@
     border-bottom-right-radius: 0;
 }
 
+/*5 day forecast container*/
+.forecast-info{
+    height: 400px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
 /*remove list attribute(displaying weather conditions)*/
 .city-list{
     border:none;

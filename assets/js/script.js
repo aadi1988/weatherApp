@@ -18,6 +18,7 @@ var checkInDict = function(city){
 
 //Add city to page - Check  if the city already exists, and add only if it doesn't
 var saveCity = function(city){
+    city  = city.charAt(0).toUpperCase() + city.slice(1);
     if (!checkInDict(city)){
         var cityEl = $("<a href='#' class='list-group-item list-group-item-action'>" + city + "</a>");
         $("#save-search").append(cityEl);
@@ -131,7 +132,7 @@ var fetchdailyForecast = function(city){
                    })
           }
           else{
-              window.alert("Invalid city name, Enter a valid city");
+                   $("#myModal").modal();
           }
     })
 }
@@ -151,7 +152,13 @@ $("#save-search").on('click','a',function(event){
 $(".container-fluid").on('click','#search-button',function(event){
    
         var city  = $("#search").val();
-        fetchdailyForecast(city);
+        if (city == null || city == " " || city == ""){
+            $("#myModal").modal();
+        }
+        else{
+            fetchdailyForecast(city);
+        }
+        
 });
 
 //load from local storage if data exists from previous searches.
