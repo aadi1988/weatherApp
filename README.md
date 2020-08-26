@@ -8,7 +8,7 @@ I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
 
 #### Snapshots of the webpage
-![Snapshot of the webpage](assets/images/weather_app_snapshot)
+![Snapshot of the webpage](assets/images/weather_app_snapshot.png)
 
 ##### Website link
 https://aadi1988.github.io/weatherApp/
