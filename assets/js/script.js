@@ -46,9 +46,9 @@ var checkFiveDayForecastChildren = function(cardDeckEl){
 var  displayCurrentForecast = function(data){
     checkForecastChildren();
     var currentForecast = $("#current-forecast");
-    currentForecast.append("<p class='list-group-item list-group-item-action city-list'>Temperature: " + data.current.temp  + "</p>");
-    currentForecast.append("<p class='list-group-item list-group-item-action city-list'>Humidity: " + data.current.humidity  + "</p>");
-    currentForecast.append("<p class='list-group-item list-group-item-action city-list'>Wind Speed: " + data.current.wind_speed  + "</p>");
+    currentForecast.append("<p class='list-group-item list-group-item-action city-list'>Temperature: " + data.current.temp  + "°F</p>");
+    currentForecast.append("<p class='list-group-item list-group-item-action city-list'>Humidity: " + data.current.humidity  + "%</p>");
+    currentForecast.append("<p class='list-group-item list-group-item-action city-list'>Wind Speed: " + data.current.wind_speed  + "Mph</p>");
     if (data.current.uvi > 8){
           currentForecast.append("<p class='list-group-item list-group-item-action city-list'>UV Index: <span class='bg-danger'>" + data.current.uvi + "</span></p>");
     }
@@ -76,9 +76,9 @@ var fiveDayForecast = function(data){
         $(p_date).addClass(["card-text","bg-primary"])
         var p_icon = $("<p class='list-group-item list-group-item-action city-list five-fcast'>" + img + "</p>");
         $(p_icon).addClass(["card-text","bg-primary"])
-        var p_temp = $("<p class='list-group-item list-group-item-action city-list five-fcast'>Temp:" + temp + "</p>");
+        var p_temp = $("<p class='list-group-item list-group-item-action city-list five-fcast'>Temp:" + temp + "°F</p>");
         $(p_temp).addClass(["card-text","bg-primary"])
-        var p_humidity = $("<p class='list-group-item list-group-item-action city-list five-fcast'>Humidity:" + humidity + "</p>");
+        var p_humidity = $("<p class='list-group-item list-group-item-action city-list five-fcast'>Humidity:" + humidity + "%</p>");
         $(p_humidity).addClass(["card-text", "bg-primary"])
         //create a card element for each of the days
         var cardEl = $("<div></div>");
